@@ -17,10 +17,11 @@ public static class GamesEndpoints
 
     public static RouteGroupBuilder MapGamesEndpoints(this WebApplication app)
     {
-        var group = app.MapGroup("games");
+        var group = app.MapGroup("games")
+            .WithParameterValidation();
 
         // GET /games
-        group.MapGet("/", () => games);
+        group.MapGet("/", () => Results.Ok(games));
 
         // GET /games/1
         group.MapGet("/{id}", (int id) =>

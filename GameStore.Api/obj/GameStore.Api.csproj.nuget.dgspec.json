@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\programming\\learn\\gamestore\\GameStore.Api\\GameStore.Api.csproj": {}
+    "D:\\programming\\learn\\gamestore\\GameStore.Api\\GameStore.Api.csproj": {}
   },
   "projects": {
-    "d:\\programming\\learn\\gamestore\\GameStore.Api\\GameStore.Api.csproj": {
+    "D:\\programming\\learn\\gamestore\\GameStore.Api\\GameStore.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\programming\\learn\\gamestore\\GameStore.Api\\GameStore.Api.csproj",
+        "projectUniqueName": "D:\\programming\\learn\\gamestore\\GameStore.Api\\GameStore.Api.csproj",
         "projectName": "GameStore.Api",
-        "projectPath": "d:\\programming\\learn\\gamestore\\GameStore.Api\\GameStore.Api.csproj",
+        "projectPath": "D:\\programming\\learn\\gamestore\\GameStore.Api\\GameStore.Api.csproj",
         "packagesPath": "C:\\Users\\shpatuss\\.nuget\\packages\\",
-        "outputPath": "d:\\programming\\learn\\gamestore\\GameStore.Api\\obj\\",
+        "outputPath": "D:\\programming\\learn\\gamestore\\GameStore.Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\shpatuss\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -43,6 +43,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[9.0.9, )"
+            },
             "MinimalApis.Extensions": {
               "target": "Package",
               "version": "[0.11.0, )"
