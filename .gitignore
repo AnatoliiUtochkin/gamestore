@@ -1,0 +1,66 @@
+# Visual Studio
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# ASP.NET
+appsettings.*.json
+*.db
+*.mdf
+*.ldf
+
+# NuGet Packages
+*.nupkg
+packages/
+*.snupkg
+
+# Resharper
+*.DotSettings.user
+_ReSharper*/
+*.[Rr]e[Ss]harper
+
+# Rider
+.idea/
+
+# Others
+*.vspscc
+*.vssscc
+*.tmp
+*.bak
+*.swp
+*.scc
+
+# Publish
+publish/
+out/
+wwwroot/
+
+# Node
+node_modules/
+
+# Environment
+.env
+.env.*
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.DS_Store
