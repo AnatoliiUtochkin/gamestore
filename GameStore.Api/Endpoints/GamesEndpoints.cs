@@ -9,27 +9,21 @@ public static class GamesEndpoints
 {
     const string GetGameEndpointName = "GetName";
 
-    private static readonly List<GameDto> games =
-    [
-        new GameDto(1, "The Legend of Zelda: Breath of the Wild", "Action-adventure", 59.99m, new DateOnly(2017, 3, 3)),
-        new GameDto(2, "God of War", "Action-adventure", 49.99m, new DateOnly(2018, 4, 20)),
-        new GameDto(3, "Red Dead Redemption 2", "Action-adventure", 39.99m, new DateOnly(2018, 10, 26)),
-        new GameDto(4, "The Witcher 3: Wild Hunt", "Action RPG", 29.99m, new DateOnly(2015, 5, 19)),
-        new GameDto(5, "Minecraft", "Sandbox", 26.95m, new DateOnly(2011, 11, 18))
-    ];
-
     public static RouteGroupBuilder MapGamesEndpoints(this WebApplication app)
     {
         var group = app.MapGroup("games")
             .WithParameterValidation();
 
         // GET /games
-        group.MapGet("/", () => Results.Ok(games));
+        group.MapGet("/", () => Results.Ok());
 
         // GET /games/1
-        group.MapGet("/{id}", (int id) =>
+        group.MapGet("/{id}", (int id, AppDbContext dbContext) =>
             {
-                GameDto? game = games.Find(game => game.Id == id);
+                GameDto? game = dbContext.Games
+                    .Where(g => g.Id == id)
+                    .Select(g => g.ToDto())
+                    .FirstOrDefault();
 
                 return game is null ? Results.NotFound() : Results.Ok(game);
             })
@@ -48,31 +42,34 @@ public static class GamesEndpoints
         });
 
         // PUT /games/{id}
-        group.MapPut("/{id}", (int id, UpdateGameDto updatedGame) =>
+        group.MapPut("/{id}", (int id, UpdateGameDto updatedGame, AppDbContext dbContext) =>
         {
-            var index = games.FindIndex(game => game.Id == id);
-
-            if (index == -1)
+            Game game = dbContext.Games.Find(id)!;
+            if (game is null)
             {
                 return Results.NotFound();
             }
 
-            games[id] = new GameDto(
-                id,
-                updatedGame.Name,
-                updatedGame.Genre,
-                updatedGame.Price,
-                updatedGame.ReleaseDate
-            );
+            game.Name = updatedGame.Name;
+            game.Genre = dbContext.Genres.Find(updatedGame.GenreId);
+            game.Price = updatedGame.Price;
+            game.ReleaseDate = updatedGame.ReleaseDate;
+            dbContext.SaveChanges();
 
             return Results.NoContent();
         });
 
         // DELETE /games/{id}
-        group.MapDelete("/{id}", (int id) =>
+        group.MapDelete("/{id}", (int id, AppDbContext dbContext) =>
         {
-            var index = games.FindIndex(game => game.Id == id);
-            games.RemoveAt(index);
+            Game game = dbContext.Games.Find(id)!;
+            if (game is null)
+            {
+                return Results.NotFound();
+            }
+
+            dbContext.Games.Remove(game);
+            dbContext.SaveChanges();
 
             return Results.NoContent();
         });
