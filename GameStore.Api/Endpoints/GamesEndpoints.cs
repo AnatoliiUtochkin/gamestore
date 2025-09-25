@@ -39,7 +39,7 @@ public static class GamesEndpoints
         group.MapPost("/", async (CreateGameDto newGame, AppDbContext dbContext) =>
         {
             Game game = newGame.ToEntity();
-            game.Genre = dbContext.Genres.Find(newGame.GenreId);
+            game.Genre = await dbContext.Genres.FindAsync(newGame.GenreId);
 
             dbContext.Games.Add(game);
             await dbContext.SaveChangesAsync();
