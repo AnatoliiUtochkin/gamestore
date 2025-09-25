@@ -16,9 +16,9 @@ public static class GamesEndpoints
             .WithParameterValidation();
 
         // GET /games
-        group.MapGet("/", (AppDbContext dbContext) =>
+        group.MapGet("/", async (AppDbContext dbContext) =>
         {
-            dbContext.Games
+            return await dbContext.Games
                 .Select(g => g.ToDto())
                 .ToListAsync();
         });
