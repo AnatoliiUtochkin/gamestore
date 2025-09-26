@@ -3279,24 +3279,31 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\shpatuss\\.nuget\\packages\\": {}
+    "C:\\Users\\shpatuss\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\programming\\learn\\gamestore\\GameStore.Api\\GameStore.Api.csproj",
+      "projectUniqueName": "d:\\programming\\learn\\AspNetCoreProjectYoutube\\GameStore.Api\\GameStore.Api.csproj",
       "projectName": "GameStore.Api",
-      "projectPath": "D:\\programming\\learn\\gamestore\\GameStore.Api\\GameStore.Api.csproj",
+      "projectPath": "d:\\programming\\learn\\AspNetCoreProjectYoutube\\GameStore.Api\\GameStore.Api.csproj",
       "packagesPath": "C:\\Users\\shpatuss\\.nuget\\packages\\",
-      "outputPath": "D:\\programming\\learn\\gamestore\\GameStore.Api\\obj\\",
+      "outputPath": "d:\\programming\\learn\\AspNetCoreProjectYoutube\\GameStore.Api\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\shpatuss\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\shpatuss\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
